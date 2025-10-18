@@ -325,3 +325,84 @@ h2 {
         flex-direction: column;
     }
 }
+
+/* ------------------ Cart Page ------------------ */
+#cartItems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#cartItems .product-card {
+    flex: 0 0 300px;
+    max-width: 300px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+#cartItems .product-img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+#cartItems .product-name {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+#cartItems .product-price {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--buy-button-bg);
+}
+
+.remove-btn {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.remove-btn:hover {
+    background-color: #e60000;
+}
+
+#totalPrice {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#checkoutBtn {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 10px 30px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#checkoutBtn:hover {
+    background-color: #0051c7;
+}
+
+/* Адаптивність */
+@media (max-width: 900px) {
+    #cartItems .product-card {
+        flex: 0 0 45%;
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 60
