@@ -1,261 +1,49 @@
-/* ------------------ Root variables ------------------ */
-:root {
-    --dark-bg: #1e1e1e;
-    --main-text: #ffffff;
-    --light-bg: #f5f5f7;
-    --accent-color: #007aff;
-    --buy-button-bg: #333333;
-    --buy-button-text: #ffffff;
-    --font-family: 'Inter', sans-serif;
-}
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кошик | IPHONE WITH OLENA</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
 
-/* ------------------ Global styles ------------------ */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+<header class="site-header">
+  <nav class="main-nav">
+    <a href="index.html" class="nav-item logo-title">IPHONE WITH OLENA</a>
+    <ul class="nav-list">
+      <li><a href="catalog.html" class="nav-link">catalog</a></li>
+      <li><a href="index.html" class="nav-link">the main</a></li>
+      <li><a href="cart.html" class="nav-link active">basket (<span id="cartCount">0</span>)</a></li>
+      <li><a href="delivery.html" class="nav-link">delivery</a></li>
+    </ul>
+  </nav>
+</header>
 
-body {
-    font-family: var(--font-family);
-    color: #333;
-    background-color: #fff;
-    line-height: 1.5;
-}
+<main class="main-content" style="padding:40px 20px; max-width:1000px; margin:auto;">
+  <h2 style="text-align:center; margin-bottom:30px;">Ваш кошик</h2>
 
-h2 {
-    text-align: center;
-    text-transform: uppercase;
-    margin-bottom: 40px;
-    font-size: 2rem;
-}
+  <div id="cartItems" class="categories-grid">
+    <!-- Товари підвантажуються через script.js -->
+  </div>
 
-/* ------------------ Header & Navigation ------------------ */
-.site-header {
-    background-color: var(--dark-bg);
-    color: var(--main-text);
-    padding: 15px 0;
-}
+  <div style="text-align:center; margin-top:30px;">
+    <p id="totalPrice">Загальна сума: 0 грн</p>
+    <button id="checkoutBtn" class="buy-button">Оформити замовлення</button>
+  </div>
+</main>
 
-.main-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+<footer class="site-footer">
+  <div class="footer-columns">
+    <div class="footer-col">
+      <h4>Контакти</h4>
+      <p>@info@iphone.ua</p>
+      <p>+380 44 123 45 67</p>
+    </div>
+  </div>
+</footer>
 
-.logo-title {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--main-text);
-    text-decoration: none;
-    letter-spacing: 1px;
-}
-
-.nav-list {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-}
-
-.nav-link {
-    text-decoration: none;
-    color: var(--main-text);
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    padding-bottom: 5px;
-    transition: color 0.3s;
-}
-
-.nav-link:hover, .nav-link.active {
-    color: var(--accent-color);
-    border-bottom: 2px solid var(--accent-color);
-}
-
-/* ------------------ Hero Banner ------------------ */
-.hero-banner {
-    background-color: #000;
-    height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-image-placeholder {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 2rem;
-}
-
-.scroll-indicator {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 5px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 3px;
-}
-
-/* ------------------ Catalog Categories ------------------ */
-.catalog-categories {
-    padding: 60px 20px;
-    background-color: var(--light-bg);
-}
-
-.categories-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-    flex-wrap: wrap;
-}
-
-.category-card {
-    flex-basis: 22%;
-    text-align: center;
-    background: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.category-card:hover {
-    transform: translateY(-5px);
-}
-
-.category-img {
-    width: 100%;
-    max-height: 150px;
-    object-fit: contain;
-    margin-bottom: 10px;
-}
-
-.category-card p {
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* ------------------ Product Carousel ------------------ */
-.product-carousel-section {
-    padding: 60px 0;
-    overflow: hidden;
-}
-
-.carousel-container {
-    position: relative;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.carousel-track {
-    display: flex;
-    transition: transform 0.3s ease-in-out;
-}
-
-.product-card {
-    flex: 0 0 33.333%;
-    max-width: 33.333%;
-    text-align: center;
-    padding: 20px;
-    margin: 0 15px;
-    background-color: #fff;
-    border: 1px solid #eee;
-}
-
-.product-img {
-    width: 100%;
-    max-height: 300px;
-    object-fit: contain;
-}
-
-.product-info {
-    padding-top: 15px;
-}
-
-.product-name {
-    font-size: 1.2rem;
-    font-weight: 400;
-    margin-bottom: 5px;
-}
-
-.product-price {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: var(--buy-button-bg);
-    margin-bottom: 10px;
-}
-
-.buy-button {
-    background-color: var(--buy-button-bg);
-    color: var(--buy-button-text);
-    text-transform: uppercase;
-    padding: 8px 30px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: bold;
-    letter-spacing: 1px;
-    transition: background-color 0.3s;
-}
-
-.buy-button:hover {
-    background-color: #000;
-}
-
-.carousel-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: var(--dark-bg);
-    font-size: 2rem;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.carousel-nav.prev { left: 0; }
-.carousel-nav.next { right: 0; }
-
-.carousel-pagination {
-    text-align: center;
-    margin-top: 30px;
-}
-
-.dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 0 5px;
-    background-color: #ccc;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.dot.active {
-    background-color: var(--dark-bg);
-}
-
-/* ------------------ Cart Page ------------------ */
-#cartItems {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin
+<script src="script.js"></script>
+</body>
+</html>
