@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Кошик | IPHONE WITH OLENA</title>
+  <link rel="stylesheet" href="stylce.ss">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="main-nav">
+    <a href="index.html" class="nav-item logo-title">IPHONE WITH OLENA</a>
+    <ul class="nav-list">
+      <li><a href="#" class="nav-link">catalog</a></li>
+      <li><a href="index.html" class="nav-link">the main</a></li>
+      <li><a href="cart.html" class="nav-link active">basket (<span id="cartCount">0</span>)</a></li>
+      <li><a href="#" class="nav-link">delivery</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="main-content" style="padding:60px 20px;">
+  <h2>Ваш кошик</h2>
+  <div id="cartItems" class="categories-grid"></div>
+
+  <div style="text-align:center; margin-top:30px;">
+    <h3>Загальна сума: <span id="totalPrice">0 ₴</span></h3>
+    <button id="checkoutBtn" class="buy-button" style="margin-top:20px;">Оформити замовлення</button>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-columns">
+    <div class="footer-col">
+      <h4>Контакти</h4>
+      <p>@info@iphone.ua</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
