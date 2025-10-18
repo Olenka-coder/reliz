@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPHONE WITH OLENA | Apple Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
 
+    <header class="site-header">
+        <nav class="main-nav">
+            <a href="index.html" class="nav-item logo-title">IPHONE WITH OLENA</a>
+            <ul class="nav-list">
+                <li><a href="#" class="nav-link">catalog</a></li>
+                <li><a href="index.html" class="nav-link active">the main</a></li>
+                <li><a href="cart.html" class="nav-link">basket (<span id="cartCount">0</span>)</a></li>
+                <li><a href="#" class="nav-link">delivery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+
+        <section class="hero-banner">
+            <div class="hero-image-placeholder">
+                <img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/f3e786207750939.66e2c343bae71.jpg" width="1700px" height="500px">
+            </div>
+        </section>
+
+        <section class="catalog-categories">
+            <h2>CATALOG</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <img src="https://img.jabko.ua/image/cache/catalog/products/2024/09/101554/MYX434-1397x1397.jpg.webp" alt="iPhone" class="category-img">
+                    <p>IPHONE</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://img.jabko.ua/image/cache/catalog/products/2020/11/111146/3-3%20(3)-1397x1397.jpg.webp" alt="MacBook" class="category-img">
+                    <p>MacBook</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://img.jabko.ua/image/cache/catalog/products/2024/10/091135/1-1397x1397.jpg.webp" alt="AirPods" class="category-img">
+                    <p>AirPods</p>
+                </div>
+                <div class="category-card">
+                    <img src="https://img.jabko.ua/image/cache/catalog/products/2021/09/150128/2021-09-15%2001.26.23-1397x1397.jpg.webp" alt="iPad" class="category-img">
+                    <p>iPad</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="product-carousel-section">
+            <h2>APPLE IPHONE</h2>
+            <div class="carousel-container">
+                <div class="carousel-track" id="productCarousel">
+                    <div class="product-card">
+                        <img src="https://img.jabko.ua/image/cache/catalog/products/2022/09/072335/photo_2022-09-07_23-29-19-1397x1397.jpg.webp" alt="iPhone 14 Blue" class="product-img">
+                        <div class="product-info">
+                            <p class="product-name">Apple iPhone 14</p>
+                            <p class="product-price">45999 ₴</p>
+                            <button class="buy-button">BUY</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://img.jabko.ua/image/cache/catalog/products/2024/01/221813/pink-1397x1397.jpeg.webp" alt="iPhone 15 Purple" class="product-img">
+                        <div class="product-info">
+                            <p class="product-name">Apple iPhone 15</p>
+                            <p class="product-price">52999 ₴</p>
+                            <button class="buy-button">BUY</button>
+                        </div>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://img.jabko.ua/image/cache/catalog/products/2022/09/072335/photo_2022-09-07_23-29-55-1397x1397.jpg.webp" alt="iPhone 14 White" class="product-img">
+                        <div class="product-info">
+                            <p class="product-name">Apple iPhone 14 White</p>
+                            <p class="product-price">45999 ₴</p>
+                            <button class="buy-button">BUY</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-nav prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-nav next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="carousel-pagination" id="carouselPagination"></div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-columns">
+            <div class="footer-col">
+                <h4>Продукція</h4>
+                <ul>
+                    <li>iPhone</li>
+                    <li>iPad</li>
+                    <li>Mac</li>
+                    <li>Apple Watch</li>
+                    <li>AirPods</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Інформація</h4>
+                <ul>
+                    <li>Про нас</li>
+                    <li>Вакансії</li>
+                </ul>
+                <h4>Контакти</h4>
+                <p>@info@iphone.ua</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
