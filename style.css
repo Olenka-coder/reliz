@@ -1,4 +1,3 @@
-/* CSS повністю як ти скинула, з доданими стилями для remove-btn та оптимізацією */
 
 :root {
     --dark-bg: #1e1e1e;
@@ -23,9 +22,39 @@ h2 { text-align: center; text-transform: uppercase; margin-bottom: 40px; font-si
 .nav-link { text-decoration: none; color: var(--main-text); text-transform: uppercase; font-size: 0.9rem; padding-bottom: 5px; transition: color 0.3s; }
 .nav-link:hover, .nav-link.active { color: var(--accent-color); border-bottom: 2px solid var(--accent-color); }
 
-.categories-grid { display: flex; justify-content: center; gap: 20px; max-width: 1000px; margin: 0 auto; flex-wrap: wrap; }
-.product-card, .category-card { background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; margin-bottom: 20px; }
-.product-img, .category-img { width: 100%; object-fit: contain; margin-bottom: 10px; }
+/* --- Нові стилі для оптимізації зображень та відображення карток --- */
+.hero-image-placeholder img { 
+    max-height: 500px; /* Обмеження висоти для головного банера */
+    width: 100%;
+    object-fit: cover; /* Забезпечує, що зображення не буде розтягнуте */
+    display: block;
+}
+.categories-grid { 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    max-width: 1200px; /* Збільшив max-width, щоб було місце для 4-х товарів */
+    margin: 0 auto; 
+    flex-wrap: wrap; 
+}
+.product-card, .category-card { 
+    background: #fff; 
+    padding: 15px; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+    text-align: center; 
+    margin-bottom: 20px;
+    width: calc(25% - 15px); /* Розмір для 4-х карток в ряд */
+    min-width: 250px; /* Мінімальна ширина для мобільної адаптації */
+}
+.product-img, .category-img { 
+    width: 100%; 
+    max-height: 200px; /* Обмеження висоти для зображень товарів */
+    object-fit: contain; 
+    margin-bottom: 10px; 
+}
+/* ----------------------------------------------------------------- */
+
 .product-name { font-size: 1.2rem; font-weight: 400; margin-bottom: 5px; }
 .product-price { font-size: 1.4rem; font-weight: bold; color: #222; margin-bottom: 10px; }
 
@@ -43,11 +72,68 @@ h2 { text-align: center; text-transform: uppercase; margin-bottom: 40px; font-si
 .footer-col ul li { margin-bottom: 8px; cursor: pointer; transition: color 0.3s; }
 .footer-col ul li:hover { color: var(--main-text); }
 
+
+/* --- Стилі для МОДАЛЬНОГО ВІКНА (ОФОРМЛЕННЯ ЗАМОВЛЕННЯ) --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close-btn:hover, .close-btn:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.order-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.order-form input[type="text"], .order-form input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.order-form button {
+    width: 100%;
+}
+/* ------------------------------------------------------------------ */
+
+
+@media (max-width:1200px) {
+    .product-card { width: calc(33.33% - 15px); } /* 3 в ряд */
+}
 @media (max-width:900px) {
-  .category-card, .product-card { flex-basis: 45%; }
+  .product-card, .category-card { width: calc(50% - 10px); } /* 2 в ряд */
   .footer-columns { flex-direction: column; gap: 30px; }
 }
 @media (max-width:600px) {
   .nav-list { display: none; }
-  .product-card, .category-card { flex-basis: 100%; }
+  .product-card, .category-card { width: 100%; } /* 1 в ряд */
 }
