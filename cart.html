@@ -15,34 +15,25 @@
     <ul class="nav-list">
       <li><a href="catalog.html" class="nav-link">catalog</a></li>
       <li><a href="index.html" class="nav-link">the main</a></li>
-      <li><a href="cart.html" class="nav-link active">basket (<span id="cartCount">0</span>)</a></li>
+      <li><a href="cart.htm" class="nav-link active">basket (<span id="cartCount">0</span>)</a></li>
       <li><a href="delivery.html" class="nav-link">delivery</a></li>
     </ul>
   </nav>
 </header>
 
-<main class="main-content" style="padding: 40px 20px;">
-  <h2>Ваш кошик</h2>
-  <div id="cartItems" class="categories-grid"></div>
-  <p id="totalPrice" style="text-align:center; font-size:1.2rem; margin-top:20px;">Загальна сума: 0 грн</p>
+<main class="main-content" style="padding:40px 20px; max-width:1000px; margin:auto;">
+  <h2 style="text-align:center; margin-bottom:30px;">Ваш кошик</h2>
+
+  <div id="cartItems" class="categories-grid">
+    <!-- Товари підвантажуються через script.js -->
+  </div>
+
   <div style="text-align:center; margin-top:30px;">
+    <p id="totalPrice">Загальна сума: 0 грн</p>
     <button id="checkoutBtn" class="buy-button">Оформити замовлення</button>
   </div>
 </main>
 
-  <footer class="site-footer">
-  <div class="footer-columns" style="justify-content:center; text-align:center;">
-    <div class="footer-col">
-      <h4>Контакти</h4>
-      <p>Ваша адреса: вул. Олени Каверзної, 10, Київ, Україна</p>
-      <p>Email: molena145@iphone.ua</p>
-      <p>Телефон: +380 44 123 45 67</p>
-    </div>
-  </div>
-</footer>
-
-
-
-<script src="script.js"></script>
-</body>
-</html>
+<footer class="site-footer">
+  <div class="footer-columns">
+    <div
