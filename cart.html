@@ -15,7 +15,7 @@
     <ul class="nav-list">
       <li><a href="catalog.html" class="nav-link">catalog</a></li>
       <li><a href="index.html" class="nav-link">the main</a></li>
-      <li><a href="cart.htm" class="nav-link active">basket (<span id="cartCount">0</span>)</a></li>
+      <li><a href="cart.html" class="nav-link active">basket (<span id="cartCount">0</span>)</a></li>
       <li><a href="delivery.html" class="nav-link">delivery</a></li>
     </ul>
   </nav>
@@ -25,17 +25,34 @@
   <h2 style="text-align:center; margin-bottom:30px;">Ваш кошик</h2>
 
   <div id="cartItems" class="categories-grid">
-    <!-- Товари підвантажуються через script.js -->
-  </div>
+    </div>
 
   <div style="text-align:center; margin-top:30px;">
-    <p id="totalPrice">Загальна сума: 0 грн</p>
+    <p id="totalPrice" style="font-size:1.5rem; font-weight:bold; margin-bottom: 20px;">Загальна сума: 0 грн</p>
     <button id="checkoutBtn" class="buy-button">Оформити замовлення</button>
   </div>
 </main>
 
+<div id="orderModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h3>Заповніть дані для оформлення</h3>
+    <form id="orderForm" class="order-form">
+      <label for="name">Ваше ім'я та прізвище:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="phone">Номер телефону:</label>
+      <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,12}">
+
+      <label for="address">Адреса доставки (Місто, Відділення Нової Пошти):</label>
+      <input type="text" id="address" name="address" required>
+
+      <button type="submit" class="buy-button">ПІДТВЕРДИТИ ЗАМОВЛЕННЯ</button>
+    </form>
+  </div>
+</div>
 <footer class="site-footer">
-  <div class="footer-columns">
+  <div class="footer-columns" style="justify-content:center; text-align:center;">
     <div class="footer-col">
       <h4>Контакти</h4>
       <p>Email: <a href="mailto:molena145@iphone.ua">molena145@iphone.ua</a></p>
