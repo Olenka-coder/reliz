@@ -1,49 +1,53 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Кошик | IPHONE WITH OLENA</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
+/* CSS повністю як ти скинула, з доданими стилями для remove-btn та оптимізацією */
 
-<header class="site-header">
-  <nav class="main-nav">
-    <a href="index.html" class="nav-item logo-title">IPHONE WITH OLENA</a>
-    <ul class="nav-list">
-      <li><a href="catalog.html" class="nav-link">catalog</a></li>
-      <li><a href="index.html" class="nav-link">the main</a></li>
-      <li><a href="cart.html" class="nav-link active">basket (<span id="cartCount">0</span>)</a></li>
-      <li><a href="delivery.html" class="nav-link">delivery</a></li>
-    </ul>
-  </nav>
-</header>
+:root {
+    --dark-bg: #1e1e1e;
+    --main-text: #ffffff;
+    --light-bg: #f5f5f7;
+    --accent-color: #007aff;
+    --buy-button-bg: #333333;
+    --buy-button-text: #ffffff;
+    --font-family: 'Inter', sans-serif;
+}
 
-<main class="main-content" style="padding:40px 20px; max-width:1000px; margin:auto;">
-  <h2 style="text-align:center; margin-bottom:30px;">Ваш кошик</h2>
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <div id="cartItems" class="categories-grid">
-    <!-- Товари підвантажуються через script.js -->
-  </div>
+body { font-family: var(--font-family); color: #333; background-color: #fff; line-height: 1.5; }
 
-  <div style="text-align:center; margin-top:30px;">
-    <p id="totalPrice">Загальна сума: 0 грн</p>
-    <button id="checkoutBtn" class="buy-button">Оформити замовлення</button>
-  </div>
-</main>
+h2 { text-align: center; text-transform: uppercase; margin-bottom: 40px; font-size: 2rem; }
 
-<footer class="site-footer">
-  <div class="footer-columns">
-    <div class="footer-col">
-      <h4>Контакти</h4>
-      <p>@info@iphone.ua</p>
-      <p>+380 44 123 45 67</p>
-    </div>
-  </div>
-</footer>
+.site-header { background-color: var(--dark-bg); color: var(--main-text); padding: 15px 0; }
+.main-nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.logo-title { font-size: 1.1rem; font-weight: 500; color: var(--main-text); text-decoration: none; letter-spacing: 1px; }
+.nav-list { list-style: none; display: flex; gap: 30px; }
+.nav-link { text-decoration: none; color: var(--main-text); text-transform: uppercase; font-size: 0.9rem; padding-bottom: 5px; transition: color 0.3s; }
+.nav-link:hover, .nav-link.active { color: var(--accent-color); border-bottom: 2px solid var(--accent-color); }
 
-<script src="script.js"></script>
-</body>
-</html>
+.categories-grid { display: flex; justify-content: center; gap: 20px; max-width: 1000px; margin: 0 auto; flex-wrap: wrap; }
+.product-card, .category-card { background: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); text-align: center; margin-bottom: 20px; }
+.product-img, .category-img { width: 100%; object-fit: contain; margin-bottom: 10px; }
+.product-name { font-size: 1.2rem; font-weight: 400; margin-bottom: 5px; }
+.product-price { font-size: 1.4rem; font-weight: bold; color: #222; margin-bottom: 10px; }
+
+.buy-button { background-color: var(--buy-button-bg); color: var(--buy-button-text); text-transform: uppercase; padding: 8px 30px; border: none; border-radius: 20px; cursor: pointer; font-weight: bold; letter-spacing: 1px; transition: background-color 0.3s; }
+.buy-button:hover { background-color: #000; }
+
+.remove-btn { background-color: #ff3b30; color: #fff; }
+.remove-btn:hover { background-color: #d32f2f; }
+
+.site-footer { background-color: var(--dark-bg); color: rgba(255,255,255,0.7); padding: 40px 20px; }
+.footer-columns { display: flex; justify-content: space-around; max-width: 1000px; margin: 0 auto; }
+.footer-col h4 { color: var(--main-text); text-transform: uppercase; font-size: 1rem; margin-bottom: 15px; }
+.footer-col p, .footer-col ul li { font-size: 0.9rem; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 8px; cursor: pointer; transition: color 0.3s; }
+.footer-col ul li:hover { color: var(--main-text); }
+
+@media (max-width:900px) {
+  .category-card, .product-card { flex-basis: 45%; }
+  .footer-columns { flex-direction: column; gap: 30px; }
+}
+@media (max-width:600px) {
+  .nav-list { display: none; }
+  .product-card, .category-card { flex-basis: 100%; }
+}
