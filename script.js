@@ -1,4 +1,3 @@
-// Додавання товарів у localStorage
 document.addEventListener("DOMContentLoaded", () => {
   const cartCount = document.getElementById("cartCount");
 
@@ -11,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Додавання у кошик
   document.querySelectorAll(".buy-button").forEach(btn => {
     btn.addEventListener("click", () => {
+      if(btn.classList.contains('remove-btn')) return; // кнопки видалення не обробляємо тут
       const name = btn.dataset.name;
       const price = parseInt(btn.dataset.price);
       const img = btn.dataset.img;
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Відображення у кошику
   const cartItems = document.getElementById("cartItems");
   if (cartItems) {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
     if (cart.length === 0) {
       cartItems.innerHTML = "<p style='text-align:center;'>Ваш кошик порожній</p>";
     } else {
@@ -45,13 +45,17 @@ document.addEventListener("DOMContentLoaded", () => {
       }).join("");
       document.getElementById("totalPrice").textContent = `Загальна сума: ${total} грн`;
 
-      // Видалення
+      // Видалення без reload
       document.querySelectorAll(".remove-btn").forEach(btn => {
         btn.addEventListener("click", () => {
           const index = btn.dataset.index;
           cart.splice(index, 1);
           localStorage.setItem("cart", JSON.stringify(cart));
-          location.reload();
+          btn.parentElement.remove();
+          updateCartCount();
+          // Перерахунок суми
+          let newTotal = cart.reduce((sum, item) => sum + item.price, 0);
+          document.getElementById("totalPrice").textContent = `Загальна сума: ${newTotal} грн`;
         });
       });
     }
@@ -60,9 +64,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const checkout = document.getElementById("checkoutBtn");
     if (checkout) {
       checkout.addEventListener("click", () => {
+        if(cart.length === 0){
+          alert("Ваш кошик порожній!");
+          return;
+        }
         alert("Дякуємо за покупку! Ваше замовлення оформлено ❤️");
         localStorage.removeItem("cart");
-        location.reload();
+        cartItems.innerHTML = "<p style='text-align:center;'>Ваш кошик порожній</p>";
+        document.getElementById("totalPrice").textContent = `Загальна сума: 0 грн`;
+        updateCartCount();
       });
     }
   }
